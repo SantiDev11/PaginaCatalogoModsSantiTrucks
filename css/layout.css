@@ -1,0 +1,194 @@
+/* layout.css: grids y secciones (mobile first; 600 / 900 / 1200) */
+
+/* Centrado sin contenedores extra: el padding lateral crece con el viewport */
+.cabecera,
+.heroe,
+.seccion,
+.pie {
+  padding-inline: max(var(--pad), calc((100% - var(--ancho)) / 2));
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.25rem;
+  padding-block: 0.6rem;
+  background: rgb(5 11 36 / 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 3px solid var(--rojo);
+}
+
+.menu {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+/* ---------- Héroe ---------- */
+.heroe {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  padding-block: 3rem 5rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 78% 45%, rgb(30 70 200 / 0.35), transparent 70%),
+    var(--fondo);
+}
+
+/* Línea discontinua de carretera al pie del héroe */
+.heroe::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 1.5rem 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--rojo) 0 3rem, transparent 3rem 5.5rem);
+}
+
+.heroe > * { position: relative; z-index: 1; }
+
+.heroe__texto { display: grid; gap: 1.4rem; align-content: center; justify-items: start; }
+
+/* ---------- Franja de beneficios ---------- */
+.franja {
+  padding-inline: max(var(--pad), calc((100% - var(--ancho)) / 2));
+  background: var(--panel);
+  border-block: 1px solid var(--linea);
+}
+.franja ul { display: grid; grid-template-columns: 1fr; }
+.franja li { display: grid; gap: 0.2rem; padding: 1.25rem 0; border-top: 1px solid var(--linea); }
+.franja li:first-child { border-top: 0; }
+.franja strong { font-family: var(--f-display); font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.franja p { color: var(--texto-suave); font-size: 0.95rem; }
+
+/* ---------- Secciones ---------- */
+.seccion {
+  position: relative;
+  padding-block: 4rem;
+}
+
+.seccion + .seccion {
+  border-top: 1px solid var(--linea);
+}
+
+.seccion__cabecera {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 2.25rem;
+  max-width: 44rem;
+}
+
+.seccion__cabecera p:last-child { color: var(--texto-suave); }
+
+/* ---------- Grids ---------- */
+.catalogo {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.combos, .opiniones {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.galeria {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.pasos {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  counter-reset: paso;
+}
+
+/* ---------- Pie ---------- */
+.pie {
+  display: grid;
+  gap: 2rem;
+  padding-block: 3rem 2.5rem;
+  background: var(--panel);
+  border-top: 3px solid var(--rojo);
+}
+
+.pie ul { display: grid; gap: 0.4rem; }
+.pie address { font-style: normal; display: grid; gap: 0.3rem; margin-top: 0.75rem; }
+.pie small { color: var(--texto-suave); max-width: 40rem; }
+
+/* ---------- Breakpoints ---------- */
+@media (min-width: 600px) {
+  .cabecera { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1rem; }
+  .menu { justify-content: flex-end; }
+  .catalogo { grid-template-columns: repeat(2, 1fr); }
+  .galeria { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; }
+  .pasos { grid-template-columns: repeat(2, 1fr); }
+  .pie { grid-template-columns: 1fr 1fr; }
+  .pie small { grid-column: 1 / -1; }
+}
+
+@media (min-width: 900px) {
+  .heroe {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    padding-block: 4.5rem 7rem;
+  }
+  .franja ul { grid-template-columns: repeat(3, 1fr); }
+  .franja li { padding: 1.6rem 1.5rem; border-top: 0; border-left: 1px solid var(--linea); }
+  .franja li:first-child { border-left: 0; padding-left: 0; }
+  .seccion { padding-block: 5.5rem; }
+  .catalogo, .combos { grid-template-columns: repeat(2, 1fr); }
+  .opiniones { grid-template-columns: repeat(3, 1fr); }
+  #faq { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: start; }
+  #faq .seccion__cabecera { margin-bottom: 0; position: sticky; top: 6rem; }
+}
+
+@media (min-width: 1200px) {
+  .pasos { grid-template-columns: repeat(4, 1fr); }
+  .catalogo { gap: 2rem; }
+}
+
+/* ---------- Página de políticas ---------- */
+.pagina,
+.politicas {
+  padding-inline: max(var(--pad), calc((100% - var(--ancho)) / 2));
+}
+.pagina { display: grid; gap: 1rem; justify-items: start; padding-block: 3.5rem 2rem; max-width: none; }
+.pagina h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); }
+.pagina p:last-child { max-width: 44rem; color: var(--texto-suave); font-size: 1.1rem; }
+.politicas { display: grid; gap: 2rem; padding-block: 1rem 5rem; }
+.politicas__contenido { display: grid; gap: 1.5rem; }
+.politicas__contenido article { display: grid; gap: 0.75rem; padding: 1.5rem; background: var(--panel); border-left: 6px solid var(--rojo); scroll-margin-top: 6rem; }
+.politicas__contenido ol, .politicas__contenido ul { display: grid; gap: 0.4rem; padding-left: 1.25rem; }
+.politicas__contenido ol { list-style: decimal; }
+.politicas__contenido ul { list-style: disc; }
+.politicas__contenido p { color: var(--texto-suave); max-width: 46rem; }
+.politicas__contenido li { color: var(--texto-suave); }
+.politicas__contenido strong { color: var(--texto); }
+.indice ul { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.indice a {
+  display: block;
+  padding: 0.35rem 0.9rem;
+  border: 2px solid var(--linea);
+  border-radius: 99px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--texto);
+}
+.indice a:hover { border-color: var(--rojo-texto); color: var(--rojo-texto); }
+@media (min-width: 900px) {
+  .politicas { grid-template-columns: 15rem 1fr; gap: 3rem; align-items: start; }
+  .indice { position: sticky; top: 6rem; }
+  .indice ul { display: grid; gap: 0.25rem; }
+  .indice a { border: 0; border-left: 3px solid var(--linea); border-radius: 0; padding: 0.4rem 0.9rem; }
+  .indice a:hover { border-left-color: var(--rojo); }
+}

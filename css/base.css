@@ -1,0 +1,107 @@
+/* base.css: reset, variables, tipografía */
+
+:root {
+  --fondo: #050b24;
+  --panel: #0b1640;
+  --panel-2: #11205a;
+  --linea: #2d3f8f;
+  --texto: #f4f6ff;
+  --texto-suave: #b8c2e6;
+  --rojo: #d41f2c;
+  --rojo-claro: #ec3b48;
+  --rojo-texto: #ff6670;
+  --rojo-texto-claro: #ff9aa0;
+  --blanco: #ffffff;
+  --frio: #a9c8ff;
+
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", Impact, sans-serif;
+  --f-cuerpo: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+
+  --pad: clamp(1rem, 4vw, 2rem);
+  --ancho: 80rem;
+  --t: 160ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--f-cuerpo);
+  font-size: 1rem;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+button { font: inherit; color: inherit; cursor: pointer; }
+
+ul, ol { padding: 0; list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  line-height: 1.02;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.8rem, 9vw, 5.6rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h3 { font-size: 1.5rem; }
+
+a { color: var(--rojo-texto); text-underline-offset: 0.2em; }
+a:hover { color: var(--rojo-texto-claro); }
+
+code {
+  background: var(--panel-2);
+  padding: 0.1em 0.4em;
+  font-size: 0.9em;
+  color: var(--frio);
+}
+
+:focus-visible {
+  outline: 3px solid var(--frio);
+  outline-offset: 3px;
+}
+
+.salto {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  z-index: 100;
+}
+.salto:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[hidden] { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
