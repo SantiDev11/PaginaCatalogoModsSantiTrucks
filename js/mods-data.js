@@ -20,34 +20,18 @@ export const categorias = {
   multimedia: "Multimedia"
 };
 
-// Campos de cada mod:
-//   precio (número en COP; sin precio mientras esté "proximamente") · categoria · estado: "disponible" | "proximamente" | "agotado"
-//   detalles: pares etiqueta/valor que se muestran en la tarjeta (solo los que existan)
-//   caracteristicas: lista opcional (si está vacía no se muestra)
 export const mods = [
-  {
-    id: "santi-engine-sound-santitrucks",
-    nombre: "Santi Engine Sound Santitrucks",
-    descripcion: "Sonido de motor realista para los camiones Santitrucks.",
-    categoria: "sonido",
-    estado: "disponible",
-    precio: 20000,
-    detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
-    caracteristicas: [],
-    imagen: "assets/images/santi-engine-sound-santitrucks.jpg",
-    alt: "Logo Motores Santitrucks SMC con tres camiones, uno gris, uno blanco y uno verde, sobre un motor"
-  },
   {
     id: "santi-pack-de-sonidos",
     nombre: "Santi Pack de sonidos",
     descripcion: "Pack de sonidos realistas para tu American Truck Simulator.",
     categoria: "sonido",
     estado: "disponible",
-    precio: 10000,
+    precio: 8000,
     detalles: { Juego: "American Truck Simulator", Formato: ".scs", Tamaño: "230 KB", Entrega: "Digital" },
     caracteristicas: [],
     imagen: "assets/images/santi-pack-de-sonidos.jpg",
-    alt: "Portada del mod Sonidos Realistas de Santi Trucks: camión rojo con acoplado ganadero por un camino de tierra"
+    alt: "Portada de Sonidos Realistas SantiTrucks para camiones SMC y CRM: camión azul con carpa negra"
   },
   {
     id: "santi-mod-de-lluvia",
@@ -55,11 +39,11 @@ export const mods = [
     descripcion: "Efectos de lluvia realista para tus recorridos.",
     categoria: "clima",
     estado: "disponible",
-    precio: 15000,
+    precio: 10000,
     detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
     caracteristicas: [],
     imagen: "assets/images/santi-mod-de-lluvia.jpg",
-    alt: "Portada del mod de lluvia realista de Santitrucks: camiones bajo una tormenta sobre una carretera mojada"
+    alt: "Portada de Mod de lluvia realista Santitrucks v1: camiones bajo la lluvia frente a una estación de servicio"
   },
   {
     id: "santi-mod-de-suspension",
@@ -71,7 +55,7 @@ export const mods = [
     detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
     caracteristicas: [],
     imagen: "assets/images/santi-mod-de-suspension.jpg",
-    alt: "Portada del mod Suspensión Realista de Santitrucks: camión amarillo en la carretera y detalle de la suspensión trasera"
+    alt: "Portada de Suspensión Realista SantiTruck: camión amarillo con remolque Yang Ming y amortiguadores de suspensión naranja"
   },
   {
     id: "multimedia-santi",
@@ -92,20 +76,30 @@ export const mods = [
   }
 ];
 
-// Promociones: `mods` son los ids incluidos; `precio` es el precio del combo.
-// El ahorro se calcula solo: suma de los mods menos el precio del combo.
 export const combos = [
   {
-    id: "combo-lluvia-suspension",
-    nombre: "Combo Lluvia + Suspensión",
-    mods: ["santi-mod-de-lluvia", "santi-mod-de-suspension"],
-    precio: 15000
+    id: "combo-suspension-lluvia",
+    nombre: "Combo Suspensión + Lluvia",
+    mods: ["santi-mod-de-suspension", "santi-mod-de-lluvia"],
+    precio: 12000
   },
   {
-    id: "combo-motores-sonidos",
-    nombre: "Combo Motores + Sonidos",
-    mods: ["santi-engine-sound-santitrucks", "santi-pack-de-sonidos"],
-    precio: 25000
+    id: "combo-suspension-sonidos",
+    nombre: "Combo Suspensión + Sonidos",
+    mods: ["santi-mod-de-suspension", "santi-pack-de-sonidos"],
+    precio: 10000
+  },
+  {
+    id: "combo-lluvia-sonidos",
+    nombre: "Combo Lluvia + Sonidos",
+    mods: ["santi-mod-de-lluvia", "santi-pack-de-sonidos"],
+    precio: 14000
+  },
+  {
+    id: "combo-completo-santitrucks",
+    nombre: "Combo Ruta Completa",
+    mods: ["santi-mod-de-suspension", "santi-mod-de-lluvia", "santi-pack-de-sonidos"],
+    precio: 17000
   }
 ];
 

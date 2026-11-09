@@ -340,7 +340,7 @@
   transition: transform var(--t), box-shadow var(--t);
 }
 .combo:hover { transform: translateY(-4px); }
-.combo__imgs { position: relative; display: grid; grid-template-columns: 1fr 1fr; background: var(--fondo); }
+.combo__imgs { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); background: var(--fondo); }
 .combo__imgs img { width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
 .combo__imgs figcaption {
   position: absolute;
