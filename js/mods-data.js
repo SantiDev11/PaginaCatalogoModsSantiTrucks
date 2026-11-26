@@ -43,7 +43,7 @@ export const mods = [
     precio: 10000,
     detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
     caracteristicas: [],
-    imagen: "assets/images/santi-mod-de-lluvia.jpg",
+    imagen: "assets/images/santi-mod-de-lluvia.jpg?v=3",
     alt: "Portada de Mod de lluvia SantiTrucks versión 2.2: Kenworth verde con remolque carpado bajo una tormenta con rayos en carretera mojada"
   },
   {

@@ -1,5 +1,5 @@
 // js/main.js: inicialización, render desde datos y navegación
-import { mods, combos, opiniones, contacto, categorias, tienda } from './mods-data.js';
+import { mods, combos, opiniones, contacto, categorias, tienda } from './mods-data.js?v=3';
 import { initGallery } from './gallery.js';
 import { initCarrito } from './cart.js';
 import { el } from './dom.js';
