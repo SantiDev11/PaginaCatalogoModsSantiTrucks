@@ -17,7 +17,8 @@ export const categorias = {
   sonido: "Sonido",
   clima: "Clima",
   mecanica: "Mecánica",
-  multimedia: "Multimedia"
+  multimedia: "Multimedia",
+  plugin: "Plugins"
 };
 
 export const mods = [
@@ -43,7 +44,7 @@ export const mods = [
     detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
     caracteristicas: [],
     imagen: "assets/images/santi-mod-de-lluvia.jpg",
-    alt: "Portada de Mod de lluvia realista Santitrucks v1: camiones bajo la lluvia frente a una estación de servicio"
+    alt: "Portada de Mod de lluvia SantiTrucks versión 2.2: Kenworth verde con remolque carpado bajo una tormenta con rayos en carretera mojada"
   },
   {
     id: "santi-mod-de-suspension",
@@ -60,10 +61,10 @@ export const mods = [
   {
     id: "multimedia-santi",
     nombre: "Multimedia Santi",
-    descripcion: "Multimedia compacta para camiones Scania, con pantalla de infoentretenimiento dentro de la cabina. Muy pronto.",
+    descripcion: "Multimedia compacta para camiones Scania, con pantalla de infoentretenimiento dentro de la cabina.",
     categoria: "multimedia",
-    estado: "proximamente",
-    precio: null,
+    estado: "disponible",
+    precio: 15000,
     detalles: { Juego: "American Truck Simulator", Entrega: "Digital" },
     caracteristicas: [
       "Pantalla multimedia correcta",
@@ -73,6 +74,23 @@ export const mods = [
     ],
     imagen: "assets/images/multimedia-santi.jpg",
     alt: "Portada de Multimedia Compacta Santi para Scania en American Truck Simulator: tablero de la cabina con pantalla multimedia mostrando radio, música, Bluetooth y navegación"
+  },
+  {
+    id: "plugin-suciedad",
+    nombre: "Plugin Suciedad",
+    descripcion: "Suciedad SantiTrucks: ensucia tu camión de forma rápida, normal o lenta. Compra única.",
+    categoria: "plugin",
+    estado: "disponible",
+    precio: 15000,
+    detalles: { Juego: "American Truck Simulator", Licencia: "Compra única", Entrega: "Digital" },
+    caracteristicas: [
+      "Modo rápido",
+      "Modo normal",
+      "Modo lento",
+      "Compra única, sin mensualidades"
+    ],
+    imagen: "assets/images/plugin-suciedad.jpg",
+    alt: "Portada de Plugin de Suciedad Santi Trucks: Kenworth negro cubierto de barro levantando polvo en una carretera colombiana al atardecer"
   }
 ];
 
@@ -100,6 +118,12 @@ export const combos = [
     nombre: "Combo Ruta Completa",
     mods: ["santi-mod-de-suspension", "santi-mod-de-lluvia", "santi-pack-de-sonidos"],
     precio: 17000
+  },
+  {
+    id: "combo-multimedia-suciedad",
+    nombre: "Combo Multimedia + Suciedad",
+    mods: ["multimedia-santi", "plugin-suciedad"],
+    precio: 25000
   }
 ];
 
